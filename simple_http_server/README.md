@@ -21,5 +21,5 @@ client:
     - check the contents of the output files. 
 
 Designed and written by: 
-    - Scott Melero (Stmelero)
-    - Korbie Sevilla (Ksevilla)
+    - Scott Melero 
+    - Korbie Sevilla 
