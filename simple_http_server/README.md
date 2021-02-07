@@ -14,8 +14,8 @@ How to Run:
     - curl http://localhost:8080/filename, to GET a file from the server.  
 
 Designed and written by: 
-    - Scott Melero (Stmelero)
-    - Korbie Sevilla (Ksevilla)
+    - Scott Melero 
+    - Korbie Sevilla 
 
 Sources:
 	- Linux man   
