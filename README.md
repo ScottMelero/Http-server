@@ -1,1 +1,1 @@
-A simple Http sever, written in C. Check the branches for additional variations
+A simple Http server, written in C. Check the branches for additional variations
