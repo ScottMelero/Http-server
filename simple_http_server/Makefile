@@ -1,14 +1,18 @@
 CC = g++ 
-CFLAGS =  -std=gnu++11 -Wall -Wextra -Wpedantic -Wshadow
-TARGET = httpserver
+CFLAGS = -Wall -Wextra -Wpedantic -Wshadow
+BINS = httpserver 
+OBJS = httpserver.o myqueue.o
 
-all: $(TARGET)
+all: $(BINS)
 
-$(TARGET): $(TARGET).cpp
-	$(CC) -o $(TARGET) $(TARGET).cpp $(CFLAGS)
+httpserver: $(OBJS)
+	$(CC) $(CFLAGS) -pthread -o $@ $^
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c -o $@ $^
 
 clean:
-	rm -f $(TARGET) $(TARGET).o 0123456789
+	rm -f *.dSYM $(OBJS) $(BINS) 
 
 spotless:
-	rm -f $(TARGET).exe
+	rm -f $(SERVER).exe

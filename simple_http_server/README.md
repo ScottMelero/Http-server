@@ -1,25 +1,25 @@
-A simple, single threaded HTTP server written in C.
+A multi-threaded HTTP server, with redundancay, written in C.
 
 How to Run: 
-- Compile the program by running the make command
-- execute the server binary file with the following command 
-    - ./httpserver address port#
-    - be sure to include a valid address. If no 
-        port # is specified, it will default to 80
-    - If the port# < 3000, you will need to preface the above run command with Sudo
-        sudo ./httpserver address port#
-- once the server is online, connet as a client via another terminal. 
-- use the following curl commands 
-    - curl -T file http://localhost:8080/filename, to PUT a file onto the server 
-    - curl http://localhost:8080/filename, to GET a file from the server.  
+Server terminal: 
+    - compile all of the source file using the make command 
+    - launch the server using the following command: 
+        ./httpserver address port# -r -N #
+    - the address is required
+    - port# and the -r and -N flags are optional 
+    - -N should be followed by a number, and will tell the server how many threads to 
+        make 
+
+client: 
+    - the best way to test this server is to run a shell script that contains 
+        multiple curl commands, and direct the output to separate files. 
+    - make a new shell file "shell.sh". fill it with curl commands as follows: 
+        curl -T t1 https://localhost:8080/filename01 > out01 &
+        curl -T t1 https://localhost:8080/filename02 > out02 &
+        curl -T t1 https://localhost:8080/filename03 > out03 ....
+    - run the command "chmod +x shell.sh" to make the script executable, then run ./shell.sh
+    - check the contents of the output files. 
 
 Designed and written by: 
     - Scott Melero (Stmelero)
     - Korbie Sevilla (Ksevilla)
-
-Sources:
-	- Linux man   
-	- How to use fstat
-	- https://stackoverflow.com/questions/28288775/how-do-you-properly-use-the-fstat-function-and-what-are-its-limits
-	- How to use strstr
-	- https://stackoverflow.com/questions/20649390/searching-substrings-in-char-array
