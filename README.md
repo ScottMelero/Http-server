@@ -1,2 +1,1 @@
-# Http-server
- http sever, writen in C
+A simple Http sever, written in C. Check the branches for additional variations
